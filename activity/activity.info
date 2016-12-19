@@ -1,0 +1,7 @@
+[Activity]
+name = Tulwa
+bundle_id = org.sugarlabs.Tulwa
+icon = activity-helloworld
+exec = sugar-activity-web
+activity_version = 1
+show_launcher = yes
