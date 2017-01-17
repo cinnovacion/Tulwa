@@ -3,7 +3,198 @@
   background-image: url(../activity/activity-helloworld.svg);
 }
 
-#canvas p {
-  margin-top: 25%;
+#canvas {
+ width: 1200px;
+ height: 845px;
+}
+
+#bienvenida{
+	width: 1200px;
+ 	height: 845px;
+ 	background-image: url(../img/Bienvenida.png);	
+}
+#menu{
+	width: 1200px;
+ 	height: 845px;
+ 	background-image: url(../img/menu.png);
+}
+#representa{
+	width: 1200px;
+ 	height: 845px;
+ 	background-image: url(../img/back.png);
+
+
+}
+
+#representa-img{
+	width: 100px;
+ 	height: 100px;
+}
+
+#reconoce{
+	width: 1200px;
+ 	height: 845px;
+ 	background-image: url(../img/back.png);
+}
+
+#practica{
+	width: 1200px;
+ 	height: 845px;
+ 	background-image: url(../img/back.png);
+}
+
+.element {
+  width: 80px;
+  position: absolute;
+}
+.btnentrar {
+
+	width: 350px;
+	height: 115px;
+	background-image: url(../img/btnentrar.png);
+	background-color: transparent !important;
+	
+}
+.hidden {
+  display: none;
+}
+
+/* ----------- aqui va --------  */
+
+.button-serie {
+  display: block;
+  width: 100px;
+  height: 120px;
+  background-color: transparent !important;
+  font-size: 30px;
+  color: #000;
+  font-weight: bold;
+  border: none !important;
+  outline: 0 !important;
+  overflow: visible;
+  padding-top: 20px;
+}
+
+.button-serie:hover, .button-serie:active {
+  border: none !important;
+}
+
+.msg {
+  position: absolute;
+  top: 390px;
+  left: 300px;
+  width: 400px;
+  margin: 10px auto 0 auto;
+}
+
+.msg h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.win {
+  background-color: #8fbd1c;
+  position: relative;
+  z-index: 1000;
+  width: 500px;
+  height: 300px;
+  margin: 30px auto 0 auto;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  padding: 80px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+.element input {
+  width: 100px;
+  position: absolute;
+  top: 56px;
+}
+
+.text2 {
+  position: absolute;
+  top: 300px;
+  left: 200px;
+  bottom: 300px;
+  width: 100%;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
   text-align: center;
 }
+
+.text {
+  position: absolute;
+  top: 310px;
+  left: 490px;
+  width: 100%;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  
+}
+.text3 {
+  position: absolute;
+  top: 300px;
+  left: 410px;
+  width: 100%;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  
+}
+
+.text4 {
+  position: absolute;
+  top: 300px;
+  left: 535px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  
+}
+
+.text5 {
+  position: absolute;
+  top: 305px;
+  left: 640px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  
+}
+.text-representa {
+  position: absolute;
+  top: 315px;
+  left: 550px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  
+}
+#score {
+  position: absolute;
+  top: 60px;
+  left: 150px;
+  margin: 5px;
+  color: white;
+  font-size: 60px;
+}
+#score-practica {
+  position: absolute;
+  top: 60px;
+  left: 150px;
+  margin: 5px;
+  color: white;
+  font-size: 60px;
+}
+
+.text-area {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
