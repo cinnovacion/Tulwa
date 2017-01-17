@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <!-- Change <title>Hello World</title> for set your custom activity name !-->
-    <title>Hello World</title>
+    <title>Tulwa</title>
     <link rel="stylesheet" media="not screen and (device-width: 1200px) and (device-height: 900px)"
           href="lib/sugar-web/graphics/css/sugar-96dpi.css">
     <link rel="stylesheet" media="screen and (device-width: 1200px) and (device-height: 900px)"
@@ -21,9 +21,141 @@
       <button class="toolbutton pull-right" id="stop-button" title="Stop"></button>
     </div>
     <div id="canvas">
-      <!-- Change "Hello World!" to change the main message -->
-      <p>Hello World!</p>
+
+      <div id="bienvenida">
+        <div class="element" style="top: 500px; left: 60px;">
+        <button id="entrar" class="btnentrar"></button>
+        </div>
+        </div>
+
+
+        <div id="menu" class="hidden">
+          <div class="menu">
+            <div class="element" style="top: 620px; left: 250px;">
+            <button id="representa-button">Representa</button>
+            </div>
+            <div class="element" style="top: 750px; left: 550px;">
+            <button id="reconoce-button">Reconoce</button>
+            </div>
+            <div class="element" style="top: 800px; left: 960px;">
+            <button id="practica-button">Practica</button>
+            </div>
+          </div>
+        </div>
+
+        
+         <div id="representa" class="hidden">
+          <div class="representa">
+
+          <div class="score-area">
+                <p id="score"></p>
+            </div>
+
+            <div class="text2">
+                <p><button id="check-representa">Comprobar</button></p>
+            </div> 
+
+             <div class="text-representa">
+               ________
+            </div>
+
+
+            <div class="msg">
+                <h1 class="hidden good">Muy bien, continúa</h1>
+                <h1 class="hidden bad">Has fallado, vuelve a intertarlo</h1>
+            </div>
+            <div class="hidden win">
+                <h1>Felicidades, has ganado</h1>
+                <button class="reload-button">Volver a menu</button>
+                <button class="serie-again">Jugar de nuevo</button>
+            </div>
+
+            <div class="element" style="top: 300px; left: 400px;" >
+                <div id="representa-img"></div>
+            </div>
+
+            <div class="element" style="top: 230px; left: 550px;">
+                <button class="button-serie" value="0"></button>
+                <input class="hidden" type="text">
+            </div>
+            <div class="element" style="top: 300px; left: 555px;">
+                <button class="button-serie" value="1"></button>
+                <input class="hidden" type="text">
+            </div>
+
+          </div>
+        </div>
+
+
+        <div id="reconoce" class="hidden">
+          <div class="reconoce">
+          </div>
+        </div>
+
+
+         <div id="practica" class="hidden">
+          <div class="practica">
+            <div class="score-area">
+                <p id="score-practica"></p>
+            </div>
+            <div class="text">
+               
+                <div id="serie-text"></div>
+            </div>
+            <div class="text2">
+                <p><button id="check">Comprobar</button></p>
+            </div>
+            <div class="text3">
+               ____
+            </div>
+            <div class="text4">
+               ____
+            </div>
+            <div class="text5">
+               _______
+            </div>
+            <div class="text-area">
+                <button class="reload reload-button" title="Volver">Volver a menu</button>
+            </div>
+            <div class="msg">
+                <h1 class="hidden good">Muy bien, continúa</h1>
+                <h1 class="hidden bad">Has fallado, vuelve a intertarlo</h1>
+            </div>
+            <div class="hidden win">
+                <h1>Felicidades, has ganado</h1>
+                <button class="reload-button">Volver a menu</button>
+                <button class="serie-again">Jugar de nuevo</button>
+            </div>
+            <div class="element" style="top: 230px; left: 390px;">
+                <button class="button-serie" value="0"></button>
+                <input class="hidden" type="text">
+            </div>
+            <div class="element" style="top: 280px; left: 390px;">
+                <button class="button-serie" value="1"></button>
+                <input class="hidden" type="text">
+            </div>
+            <div class="element" style="top: 230px; left: 510px;">
+                <button class="button-serie" value="2"></button>
+                <input class="hidden" type="text">
+            </div>
+            <div class="element" style="top: 280px; left: 510px;">
+                <button class="button-serie" value="3"></button>
+                <input class="hidden" type="text">
+            </div>
+            <div class="element" style="top: 220px; left: 640px;">
+                <button class="button-serie" value="4"></button>
+                <input class="hidden" type="text">
+            </div>
+            <div class="element" style="top: 290px; left: 640px;">
+                <button class="button-serie" value="5"></button>
+                <input class="hidden" type="text">
+            </div>
+
+          </div>
+        </div>
+
       </div>
+      
 
     </div>
   </body>
