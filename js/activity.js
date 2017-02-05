@@ -8,6 +8,9 @@ define(function (require) {
     function win_msg() {
         $('.win').removeClass('hidden');
     }
+    function lose_msg(){
+        $('.lose').removeClass('hidden');
+    }
 
     function fail_msg() {
         $('.bad').removeClass('hidden');
@@ -26,6 +29,8 @@ define(function (require) {
     function Representa() {
         this.op1 = 0;
         this.scores = 0;
+        this.life = 4;
+        this.life_count = 4;
         this.win_count = 0;
     };
 
@@ -35,6 +40,10 @@ define(function (require) {
         }else{
             $("#score").html(this.scores);
         }
+    };
+
+    Representa.prototype.addlife = function() {
+        $("#life-representa").html(this.life);
     };
 
     Representa.prototype.randomSerie = function() {
@@ -74,6 +83,15 @@ define(function (require) {
         }
     }
 
+    Representa.prototype.lose = function() {
+        if (this.life_count < 1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     Representa.prototype.check = function() {
         if (parseInt($('.op1').val()) === this.op1) {
             $('.op1').val('');
@@ -82,6 +100,7 @@ define(function (require) {
         }
         else {
             $('.op1').val('');
+            this.life_count--;
             return false;
         }
 
@@ -93,6 +112,7 @@ define(function (require) {
         this.op2 = 0;
         this.scores = 0;
         this.win_count = 0;
+        
     };
 
     Practica.prototype.addScore = function() {
@@ -102,6 +122,8 @@ define(function (require) {
             $("#score-practica").html(this.scores);
         }
     };
+
+
 
     Practica.prototype.randomSerie = function() {
         var tmp = practica[Math.floor(Math.random() * practica.length)];
@@ -178,11 +200,14 @@ define(function (require) {
             $('#representa').toggle();
 
             var s = new Representa();
-                s.addScore
+                s.addlife();
+                s.addScore();
                 s.randomSerie();
                 $('#check-representa').on('click', function() {
-                    if(s.check()) {
+                    if(s.check() === true) {
                         console.log(s.win());
+                        console.log(s.lose());
+
                         if(s.win()) {
                             win_msg();
                         }
@@ -195,14 +220,16 @@ define(function (require) {
                         }
                     }
 
+                    else if (s.lose()) {
+                            lose_msg();
+                        }
+
                     else {
+                        s.randomSerie();
+                        s.addlife();
+                        s.life--;
                         fail_msg();
                     }
-                });
-                $('.serie-again').on('click', function(e) {
-                    s.clean();
-                    s.randomSerie();
-                    $('.win').addClass('hidden');
                 });
         });
 
@@ -232,11 +259,6 @@ define(function (require) {
                     else {
                         fail_msg();
                     }
-                });
-                $('.serie-again').on('click', function(e) {
-                    s.clean();
-                    s.randomSerie();
-                    $('.win').addClass('hidden');
                 });
         });
 
