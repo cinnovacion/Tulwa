@@ -44,7 +44,6 @@
 }
 
 .element {
-  width: 80px;
   position: absolute;
 }
 .btnentrar {
@@ -63,10 +62,9 @@
 
 .button-serie {
   display: block;
-  width: 100px;
-  height: 120px;
+  position: absolute;
   background-color: transparent !important;
-  font-size: 30px;
+  font-size: 50px;
   color: #000;
   font-weight: bold;
   border: none !important;
@@ -83,7 +81,7 @@
   position: absolute;
   top: 390px;
   left: 300px;
-  width: 400px;
+
   margin: 10px auto 0 auto;
 }
 
@@ -96,6 +94,20 @@
   background-color: #8fbd1c;
   position: relative;
   z-index: 1000;
+  width: 500px;
+  height: 300px;
+  margin: 30px auto 0 auto;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  padding: 80px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+.lose {
+  background-color: #8fbd1c;
+  position: absolute;
   width: 500px;
   height: 300px;
   margin: 30px auto 0 auto;
@@ -186,6 +198,15 @@
   position: absolute;
   top: 60px;
   left: 150px;
+  margin: 5px;
+  color: white;
+  font-size: 60px;
+}
+
+#life-representa {
+  position: absolute;
+  top: 40px;
+  left: 1000px;
   margin: 5px;
   color: white;
   font-size: 60px;
