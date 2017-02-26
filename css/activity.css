@@ -46,14 +46,7 @@
 .element {
   position: absolute;
 }
-.btnentrar {
 
-	width: 350px;
-	height: 115px;
-	background-image: url(../img/btnentrar.png);
-	background-color: transparent !important;
-	
-}
 .hidden {
   display: none;
 }
@@ -219,3 +212,100 @@
   color: #fff;
   font-size: 25px;
   font-weight: bold;
+}
+/**********************************************************/
+#history {
+  position: absolute;
+  background-image: url(../img/btnhistory.png);
+  background-color: transparent;
+  height: 136px;
+  width: 353px;
+  top: 150px;
+  left: 0px;
+}
+
+#history:hover {
+  background-image: url(../img/btnhistory-hover.png);
+}
+
+#play {
+  position: absolute;
+  background-image: url(../img/btnentrar.png);
+  background-color: transparent;
+  height: 136px;
+  width: 353px;
+  top: 0px;
+  left: 0px;
+}
+
+#play:hover {
+  background-image: url(../img/btnentrar-hover.png);
+}
+
+#modal {
+  z-index: 998;
+  position: absolute;
+  top: 0px;
+  width: 1200px;
+  height: 845px;
+  background-color: black;
+  opacity: 0.7;
+}
+#modal-content {
+  z-index: 999;
+  position: absolute;
+  border: 8px solid #2E9AFE;
+  border-radius: 40px;
+
+  background-color: white;
+  top: 40px;
+  left: 43px;
+  width: 1100px;
+  height: 750px;
+}
+#close-modal {
+  position: absolute;
+  background-image: url(../img/close-modal.png);
+  width: 60px;
+  height: 60px;
+  padding: 0px;
+  border: none;
+  border-radius: 30px;
+  right: 5px;
+  top: 5px;
+}
+#close-modal:hover {
+  background-image: url(../img/close-modal-hover.png);
+}
+#back-menu {
+  position: absolute;
+  top: 800px;
+  left: 50px;
+}
+#representa-button {
+  position: absolute;
+  background-image: url(../img/cacique1.png);
+  background-color: transparent;
+  height: 419px;
+  width: 203px;
+  top: 175px;
+  left: 175px;
+}
+#reconoce-button {
+  position: absolute;
+  background-image: url(../img/cacique2.png);
+  background-color: transparent;
+  height: 391px;
+  width: 232px;
+  top: 300px;
+  left: 500px;
+}
+#practica-button {
+  position: absolute;
+  background-image: url(../img/cacique3.png);
+  background-color: transparent;
+  height: 376px;
+  width: 235px;
+  top: 450px;
+  left: 750px;
+}

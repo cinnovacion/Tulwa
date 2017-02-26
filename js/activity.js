@@ -190,9 +190,23 @@ define(function (require) {
 
         // Initialize the activity.
         activity.setup();
-        $('#entrar').on('click', function(){
+        $('#play').on('click', function(){
             $('#bienvenida').toggle();
             $('#menu').toggle();
+        });
+        $('#back-menu').on('click', function(){
+            $('#bienvenida').toggle();
+            $('#menu').toggle();
+        });
+
+        $('#history').on('click', function(){
+            $('#modal').removeClass('hidden');
+            $('#modal-content').removeClass('hidden');
+        });
+
+        $('#close-modal').on('click', function(){
+            $('#modal').addClass('hidden');
+            $('#modal-content').addClass('hidden');
         });
 
         $('#representa-button').on('click', function(){
