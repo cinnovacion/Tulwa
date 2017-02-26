@@ -5,97 +5,37 @@ define(function (require) {
     var representa = require("../js/representa.js");
     var practica = require("../js/practica.js");
 
-    function win_msg() {
-        $('.win').removeClass('hidden');
-    }
-    function lose_msg(){
-        $('.lose').removeClass('hidden');
-    }
-
-    function fail_msg() {
-        $('.bad').removeClass('hidden');
-        setTimeout(function() {
-            $('.bad').addClass('hidden');
-        }, 1500);
-    }
-
-    function good_msg() {
-        $('.good').removeClass('hidden');
-        setTimeout(function() {
-            $('.good').addClass('hidden');
-        }, 1500);
-    }
+    var representaSerie = null;
+    var representaLifeCount = null;
+    var representaWinCount = null;
 
     function Representa() {
-        this.op1 = 0;
-        this.scores = 0;
-        this.life = 4;
-        this.life_count = 4;
-        this.win_count = 0;
+        representaLifeCount = 4;
+        representaWinCount = 0;
     };
 
-    Representa.prototype.addScore = function() {
-        if (this.scores < 10) {
-            $("#score").html("0"+this.scores);
-        }else{
-            $("#score").html(this.scores);
-        }
-    };
-
-    Representa.prototype.addlife = function() {
-        $("#life-representa").html(this.life);
-    };
-
-    Representa.prototype.randomSerie = function() {
-        var tmp = representa[Math.floor(Math.random() * representa.length)];
-        this.op1 = tmp.op1;
+    function ramdomSerie_Representa() {
+        representaSerie = representa[Math.floor(Math.random() * representa.length)];
         //$('#representa-img').css('background', 'url('+tmp.img+') no-repeat 0 0');
-        $('#representa-img').css('background', 'url('+tmp.img+')');
-        $('#representa-text').html(tmp.serie);
+        $('#representa-img').css('background', 'url('+representaSerie.img+')');
+        $('#representa-text').html(representaSerie.serie);
     };
 
-    Representa.prototype.clean = function() {
-        for (var i=0; i<8; i++) {
-            $('button[value="'+ i +'"]').html('');
-            $('button[value="'+ i +'"]').next('input').addClass('hidden');
-            if ($('button[value="'+ i +'"]').next('input').hasClass('op1')) {
-                $('button[value="'+ i +'"]').next('input').removeClass('op1');
-            }
-        }
-
+    function check_Representa() {
+        console.log(representaSerie)
+        return parseInt($('#representa-op').val()) == representaSerie.op1;
     };
 
-    Representa.prototype.win = function() {
-        if (this.win_count >= 15) {
-            return true;
+    function addScore_Representa() {
+        if (representaWinCount < 10) {
+            $("#score").html("0"+representaWinCount);
+        }else{
+            $("#score").html(representaWinCount);
         }
-        else {
-            return false;
-        }
-    }
+    };
 
-    Representa.prototype.lose = function() {
-        if (this.life_count < 1) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    Representa.prototype.check = function() {
-        if (parseInt($('#representa-op').val()) === this.op1) {
-            $('#representa-op').val('');
-            this.win_count++;
-            return true;
-        }
-        else {
-            $('#representa-op').val('');
-            this.life_count--;
-            return false;
-        }
-
-
+    function addLife_Representa() {
+        $("#life-representa").html(representaLifeCount);
     };
 
     function Practica() {
@@ -103,7 +43,6 @@ define(function (require) {
         this.op2 = 0;
         this.scores = 0;
         this.win_count = 0;
-        
     };
 
     Practica.prototype.addScore = function() {
@@ -113,8 +52,6 @@ define(function (require) {
             $("#score-practica").html(this.scores);
         }
     };
-
-
 
     Practica.prototype.randomSerie = function() {
         var tmp = practica[Math.floor(Math.random() * practica.length)];
@@ -145,7 +82,6 @@ define(function (require) {
                 $('button[value="'+ i +'"]').next('input').removeClass('op2');
             }
         }
-
     };
 
     Practica.prototype.win = function() {
@@ -169,8 +105,6 @@ define(function (require) {
             $('.op2').val('');
             return false;
         }
-
-
     };
 
 
@@ -214,39 +148,37 @@ define(function (require) {
             $('#menu').toggle();
             $('#representa').toggle();
             
-            var s = new Representa();
-            s.addlife();
-            s.addScore();
-            s.randomSerie();
-            $('#check-representa').on('click', function() {
-                if(s.check() === true) {
-                    console.log(s.win());
-                    console.log(s.lose());
+            Representa();
+            addLife_Representa();
+            addScore_Representa();
+            ramdomSerie_Representa();
+        });
 
-                    if(s.win()) {
-                        win_msg();
-                    }
-                    else {
-                        s.clean();
-                        good_msg();
-                        s.randomSerie();
-                        s.scores++;
-                        s.addScore();
-                    }
+        $('#check-representa').on('click', function() {
+            if(check_Representa() == true) {
+                $('#msg-representa').html('¡Muy bien, continúa así!');
+                $('#msg-representa').removeClass('hidden');
+                setTimeout(function(){ $('#msg-representa').addClass('hidden'); }, 2000);
+                $('#representa-op').val('');
+                representaWinCount++;
+                addScore_Representa();
+                if (representaWinCount == 3) { //cambiar para cantidad de aciertos
+                    window.alert('pasaste!');
                 }
-
-                else if (s.lose()) {
-                        lose_msg();
-                    }
-
-                else {
-                    s.randomSerie();
-                    s.addlife();
-                    s.life--;
-                    fail_msg();
+            }else {
+                $('#msg-representa').html('¡Te has equivocado!');
+                $('#msg-representa').removeClass('hidden');
+                setTimeout(function(){ $('#msg-representa').addClass('hidden'); }, 2000);
+                $('#representa-op').val('');
+                representaLifeCount--;
+                addLife_Representa();
+                if (representaLifeCount == 0) {
+                    window.alert('perdiste!');
+                    $('#representa').toggle();
+                    $('#menu').toggle();
                 }
-            });
-
+            }
+            ramdomSerie_Representa();
         });
 
         $('#practica-button').on('click', function(){

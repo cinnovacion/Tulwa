@@ -366,3 +366,17 @@ input::-webkit-inner-spin-button {
   top: 320px;
   left: 480px;
 }
+#msg-representa {
+  position: absolute;
+  width: 700px;
+  height: 40px;
+  top: 550px;
+  left: 350px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 10px; 
+  font-size: 25px;
+  color: white;
+  font-weight: bold; 
+}
