@@ -12,6 +12,10 @@ define(function (require) {
     function Representa() {
         representaLifeCount = 4;
         representaWinCount = 0;
+        $('#life-container-representa').empty();
+        for (var i = 1; i <= representaLifeCount; i++) {
+            $('#life-container-representa').append('<button id="life-representa-'+i+'" class="life-representa-icon"></button>');
+        };
     };
 
     function ramdomSerie_Representa() {
@@ -170,6 +174,7 @@ define(function (require) {
                 $('#msg-representa').removeClass('hidden');
                 setTimeout(function(){ $('#msg-representa').addClass('hidden'); }, 2000);
                 $('#representa-op').val('');
+                $('#life-representa-'+representaLifeCount).fadeOut();
                 representaLifeCount--;
                 addLife_Representa();
                 if (representaLifeCount == 0) {
@@ -180,6 +185,8 @@ define(function (require) {
             }
             ramdomSerie_Representa();
         });
+
+
 
         $('#practica-button').on('click', function(){
             $('#menu').toggle();

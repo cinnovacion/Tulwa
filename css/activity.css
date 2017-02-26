@@ -380,3 +380,23 @@ input::-webkit-inner-spin-button {
   color: white;
   font-weight: bold; 
 }
+#life-container-representa {
+  position: absolute;
+  width: 250px;
+  height: 60px;
+  /*background-color: red;*/
+  top: 10px;
+  left: 800px;
+}
+.life-representa-icon {
+  width: 55px;
+  height: 55px;
+  background-color: transparent;
+  border: none;
+  margin: 2px;
+  background-image: url(../img/icon.png);
+  float: right;
+}
+.life-representa-icon:hover {
+  background-color: transparent;
+}
