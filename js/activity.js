@@ -49,18 +49,9 @@ define(function (require) {
     Representa.prototype.randomSerie = function() {
         var tmp = representa[Math.floor(Math.random() * representa.length)];
         this.op1 = tmp.op1;
-        $('#representa-img').css('background', 'url('+tmp.img+') no-repeat 0 0');
-        var op = 1;
-        for (var i=0; i<tmp.serie.length; i++) {
-            if (tmp.serie[i] != null) {
-                $('button[value="'+ i +'"]').html(tmp.serie[i]);
-            }
-            else {
-                $('button[value="'+ i +'"]').next('input').removeClass('hidden').addClass('op' + op);
-                op++;
-            }
-
-        }
+        //$('#representa-img').css('background', 'url('+tmp.img+') no-repeat 0 0');
+        $('#representa-img').css('background', 'url('+tmp.img+')');
+        $('#representa-text').html(tmp.serie);
     };
 
     Representa.prototype.clean = function() {
@@ -93,13 +84,13 @@ define(function (require) {
     }
 
     Representa.prototype.check = function() {
-        if (parseInt($('.op1').val()) === this.op1) {
-            $('.op1').val('');
+        if (parseInt($('#representa-op').val()) === this.op1) {
+            $('#representa-op').val('');
             this.win_count++;
             return true;
         }
         else {
-            $('.op1').val('');
+            $('#representa-op').val('');
             this.life_count--;
             return false;
         }
@@ -204,51 +195,61 @@ define(function (require) {
             $('#modal-content').removeClass('hidden');
         });
 
+        $('#help-representa').on('click', function(){
+            $('#modal').removeClass('hidden');
+            $('#modal-content').removeClass('hidden');
+        });
+
         $('#close-modal').on('click', function(){
             $('#modal').addClass('hidden');
             $('#modal-content').addClass('hidden');
         });
 
+        $('#back-representa').on('click', function(){
+            $('#representa').toggle();
+            $('#menu').toggle();
+        });
+
         $('#representa-button').on('click', function(){
             $('#menu').toggle();
             $('#representa').toggle();
-
+            
             var s = new Representa();
-                s.addlife();
-                s.addScore();
-                s.randomSerie();
-                $('#check-representa').on('click', function() {
-                    if(s.check() === true) {
-                        console.log(s.win());
-                        console.log(s.lose());
+            s.addlife();
+            s.addScore();
+            s.randomSerie();
+            $('#check-representa').on('click', function() {
+                if(s.check() === true) {
+                    console.log(s.win());
+                    console.log(s.lose());
 
-                        if(s.win()) {
-                            win_msg();
-                        }
-                        else {
-                            s.clean();
-                            good_msg();
-                            s.randomSerie();
-                            s.scores++;
-                            s.addScore();
-                        }
+                    if(s.win()) {
+                        win_msg();
                     }
-
-                    else if (s.lose()) {
-                            lose_msg();
-                        }
-
                     else {
+                        s.clean();
+                        good_msg();
                         s.randomSerie();
-                        s.addlife();
-                        s.life--;
-                        fail_msg();
+                        s.scores++;
+                        s.addScore();
                     }
-                });
+                }
+
+                else if (s.lose()) {
+                        lose_msg();
+                    }
+
+                else {
+                    s.randomSerie();
+                    s.addlife();
+                    s.life--;
+                    fail_msg();
+                }
+            });
+
         });
 
-
-         $('#practica-button').on('click', function(){
+        $('#practica-button').on('click', function(){
             $('#menu').toggle();
             $('#practica').toggle();
 
@@ -275,9 +276,6 @@ define(function (require) {
                     }
                 });
         });
-
-
-
 
     });
 

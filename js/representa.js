@@ -2,22 +2,22 @@ define(function (require) {
     return [
 
         {
-            'serie': [null, 2],
+            'serie': 2,
             'img': 'img/Nivel1/ejer1.png',
             'op1': 1,
         },
 
         {
-            'serie': [null, 4],
+            'serie': 4,
             'img': 'img/Nivel1/ejer2.png',
             'op1': 2,
         },
 
         {
-            'serie': [null, 8],
+            'serie': 8,
             'img': 'img/Nivel1/ejer3.png',
             'op1': 3,
-        },
+        },/*
 
         {
             'serie': [null, 6],
@@ -253,7 +253,7 @@ define(function (require) {
             'serie': [null, 21],
             'img': 'img/Nivel1/ejer50.png',
             'op1': 2,
-        },
+        },*/
 
        
     ];
