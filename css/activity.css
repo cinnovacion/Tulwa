@@ -257,6 +257,9 @@
   top: 175px;
   left: 175px;
 }
+#representa-button:hover {
+  zoom:110%;
+}
 #reconoce-button {
   position: absolute;
   background-image: url(../img/cacique2.png);
@@ -266,6 +269,10 @@
   top: 300px;
   left: 500px;
 }
+
+#reconoce-button:hover{
+  zoom:110%;
+}
 #practica-button {
   position: absolute;
   background-image: url(../img/cacique3.png);
@@ -274,6 +281,9 @@
   width: 235px;
   top: 450px;
   left: 750px;
+}
+#practica-button:hover{
+  zoom:110%;
 }
 #score {
   position: absolute;
