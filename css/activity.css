@@ -42,64 +42,6 @@
 
 /* ----------- aqui va --------  */
 
-.button-serie {
-  display: block;
-  position: absolute;
-  background-color: transparent !important;
-  font-size: 50px;
-  color: #000;
-  font-weight: bold;
-  border: none !important;
-  outline: 0 !important;
-  overflow: visible;
-  padding-top: 20px;
-}
-
-.button-serie:hover, .button-serie:active {
-  border: none !important;
-}
-
-.msg {
-  position: absolute;
-  top: 390px;
-  left: 300px;
-
-  margin: 10px auto 0 auto;
-}
-
-.msg h1 {
-  text-align: center;
-  color: #fff;
-}
-
-.win {
-  background-color: #8fbd1c;
-  position: relative;
-  z-index: 1000;
-  width: 500px;
-  height: 300px;
-  margin: 30px auto 0 auto;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  padding: 80px;
-  font-size: 20px;
-  border-radius: 20px;
-}
-
-.lose {
-  background-color: #8fbd1c;
-  position: absolute;
-  width: 500px;
-  height: 300px;
-  margin: 30px auto 0 auto;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  padding: 80px;
-  font-size: 20px;
-  border-radius: 20px;
-}
 
 .element input {
   width: 100px;
@@ -107,58 +49,6 @@
   top: 56px;
 }
 
-.text2 {
-  position: absolute;
-  top: 300px;
-  left: 200px;
-  bottom: 300px;
-  width: 100%;
-  color: #fff;
-  font-size: 25px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.text {
-  position: absolute;
-  top: 310px;
-  left: 490px;
-  width: 100%;
-  color: #fff;
-  font-size: 25px;
-  font-weight: bold;
-  
-}
-.text3 {
-  position: absolute;
-  top: 300px;
-  left: 410px;
-  width: 100%;
-  color: #fff;
-  font-size: 25px;
-  font-weight: bold;
-  
-}
-
-.text4 {
-  position: absolute;
-  top: 300px;
-  left: 535px;
-  color: #fff;
-  font-size: 25px;
-  font-weight: bold;
-  
-}
-
-.text5 {
-  position: absolute;
-  top: 305px;
-  left: 640px;
-  color: #fff;
-  font-size: 25px;
-  font-weight: bold;
-  
-}
 
 #score-practica {
   position: absolute;
@@ -169,16 +59,6 @@
   font-size: 60px;
 }
 
-
-
-.text-area {
-  position: absolute;
-  top: 150px;
-  width: 100%;
-  color: #fff;
-  font-size: 25px;
-  font-weight: bold;
-}
 /**********************************************************/
 #history {
   position: absolute;
@@ -409,4 +289,157 @@ input::-webkit-inner-spin-button {
 }
 .life-representa-icon:hover {
   background-color: transparent;
+}
+
+/*-------------------------------------------*/
+
+#score-reconoce {
+  position: absolute;
+  top: 50px;
+  left: 150px;
+  margin: 5px;
+  color: white;
+  font-size: 60px;
+}
+#life-reconoce {
+  position: absolute;
+  top: 40px;
+  left: 1000px;
+  margin: 5px;
+  color: white;
+  font-size: 60px;
+}
+#help-reconoce {
+  position: absolute;
+  top: 20px;
+  left: 1100px;
+}
+#back-reconoce {
+  position: absolute;
+  top: 780px;
+  left: 250px;
+}
+#reconoce{
+  width: 1200px;
+  height: 845px;
+  background-image: url(../img/back.png);
+}
+#reconoce-area {
+  position: absolute;
+  width: 800px;
+  height: 400px;
+  background-color: transparent;
+  top: 160px;
+  left: 300px;
+}
+#reconoce-img {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background-color: white;
+  top: 20px;
+  left: 20px;
+}
+#reconoce-text {
+  width: 130px;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  border-style: solid;
+  border-width: 10px 0px 0px 0px;
+  border-color: white;
+
+  position: absolute;
+  top: 270px;
+  left: 435px; 
+}
+#check-reconoce-container {
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  position: absolute;
+  top: 250px;
+  left: 600px;
+}
+#msg-reconoce {
+  position: absolute;
+  width: 700px;
+  height: 40px;
+  top: 550px;
+  left: 350px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 10px; 
+  font-size: 25px;
+  color: white;
+  font-weight: bold; 
+}
+#life-container-reconoce {
+  position: absolute;
+  width: 250px;
+  height: 60px;
+  /*background-color: red;*/
+  top: 10px;
+  left: 800px;
+}
+.life-reconoce-icon {
+  width: 55px;
+  height: 55px;
+  background-color: transparent;
+  border: none;
+  margin: 2px;
+  background-image: url(../img/icon.png);
+  float: right;
+}
+.life-reconoce-icon:hover {
+  background-color: transparent;
+}
+.label-reconoce {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  position: absolute;
+}
+#label-reconoce-numerador {
+  top: 20px;
+  left: 400px;
+}
+#label-reconoce-denominador {
+  top: 100px;
+  left: 400px;
+}
+#label-reconoce-fraccion {
+  top: 160px;
+  left: 400px;
+}
+.input-reconoce {
+  width: 100px;
+  height: 60px;
+  padding: 0px;
+  background-color: white;
+  border: 2px solid;
+  border-color: grey;
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  position: absolute;
+}
+#reconoce-num {
+  top: 10px;
+  right: 50px;
+}
+#reconoce-den {
+  top: 90px;
+  right: 50px;
+}
+#reconoce-fra-num {
+  top: 200px;
+  right: 250px;
+}
+#reconoce-fra-den {
+  top: 285px;
+  right: 250px;
 }

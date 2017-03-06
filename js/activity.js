@@ -3,11 +3,17 @@ define(function (require) {
     var datastore = require("sugar-web/datastore");
     var jquery = require("../js/jquery.js");	
     var representa = require("../js/representa.js");
+    var reconoce = require("../js/reconoce.js");
     var practica = require("../js/practica.js");
 
     var representaSerie = null;
     var representaLifeCount = null;
     var representaWinCount = null;
+
+    var reconoceSerie = null;
+    var reconoceLifeCount = null;
+    var reconoceWinCount = null;
+
 
     function Representa() {
         representaLifeCount = 4;
@@ -42,76 +48,66 @@ define(function (require) {
         $("#life-representa").html(representaLifeCount);
     };
 
-    function Practica() {
-        this.op1 = 0;
-        this.op2 = 0;
-        this.scores = 0;
-        this.win_count = 0;
+   function Reconoce() {
+        reconoceLifeCount = 4;
+        reconoceWinCount = 0;
+        $('#life-container-reconoce').empty();
+        for (var i = 1; i <= reconoceLifeCount; i++) {
+            $('#life-container-reconoce').append('<button id="life-reconoce-'+i+'" class="life-reconoce-icon"></button>');
+        };
     };
 
-    Practica.prototype.addScore = function() {
-        if (this.scores < 10) {
-            $("#score-practica").html("0"+this.scores);
+    function ramdomSerie_Reconoce() {
+        reconoceSerie = reconoce[Math.floor(Math.random() * reconoce.length)];
+        //$('#representa-img').css('background', 'url('+tmp.img+') no-repeat 0 0');
+        $('#reconoce-img').css('background', 'url('+reconoceSerie.img+')');
+        console.log(reconoceSerie)
+    };
+
+    function check_Reconoce() {
+        var hits = 0;
+        if (parseInt($('#reconoce-num').val()) == reconoceSerie.serie[0]) {
+            hits++;
+        } else{
+            $('#reconoce-num').val('');
+        }
+
+        if (parseInt($('#reconoce-den').val()) == reconoceSerie.serie[1]) {
+            hits++;
+        } else{
+            $('#reconoce-den').val('');
+        }
+
+        if (parseInt($('#reconoce-fra-num').val()) == reconoceSerie.serie[0]) {
+            hits++;
+        } else{
+            $('#reconoce-fra-num').val('');
+        }
+
+        if (parseInt($('#reconoce-fra-den').val()) == reconoceSerie.serie[1]) {
+            hits++;
+        } else{
+            $('#reconoce-fra-den').val('');
+        }
+
+        if (hits == 4) {
+            return true;
+        } else{
+            return false;
+        }
+    };
+
+    function addScore_Reconoce() {
+        if (reconoceWinCount < 10) {
+            $("#score-reconoce").html("0"+reconoceWinCount);
         }else{
-            $("#score-practica").html(this.scores);
+            $("#score-reconoce").html(reconoceWinCount);
         }
     };
 
-    Practica.prototype.randomSerie = function() {
-        var tmp = practica[Math.floor(Math.random() * practica.length)];
-        this.op1 = tmp.op1;
-        this.op2 = tmp.op2;
-        var op = 1;
-        for (var i=0; i<tmp.serie.length; i++) {
-            if (tmp.serie[i] != null) {
-                $('button[value="'+ i +'"]').html(tmp.serie[i]);
-            }
-            else {
-                $('button[value="'+ i +'"]').next('input').removeClass('hidden').addClass('op' + op);
-                op++;
-            }
-
-            $('#serie-text').html(tmp.text);
-        }
+    function addLife_Reconoce() {
+        $("#life-reconoce").html(reconoceLifeCount);
     };
-
-    Practica.prototype.clean = function() {
-        for (var i=0; i<8; i++) {
-            $('button[value="'+ i +'"]').html('');
-            $('button[value="'+ i +'"]').next('input').addClass('hidden');
-            if ($('button[value="'+ i +'"]').next('input').hasClass('op1')) {
-                $('button[value="'+ i +'"]').next('input').removeClass('op1');
-            }
-            else if ($('button[value="'+ i +'"]').next('input').hasClass('op2')) {
-                $('button[value="'+ i +'"]').next('input').removeClass('op2');
-            }
-        }
-    };
-
-    Practica.prototype.win = function() {
-        if (this.win_count >= 25) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    Practica.prototype.check = function() {
-        if (parseInt($('.op1').val()) === this.op1 && parseInt($('.op2').val()) === this.op2) {
-            $('.op1').val('');
-            $('.op2').val('');
-            this.win_count++;
-            return true;
-        }
-        else {
-            $('.op1').val('');
-            $('.op2').val('');
-            return false;
-        }
-    };
-
-
 
     // Manipulate the DOM only when it is ready.
     require(['domReady!'], function (doc) {
@@ -137,6 +133,10 @@ define(function (require) {
             $('#modal').removeClass('hidden');
             $('#modal-content').removeClass('hidden');
         });
+        $('#help-reconoce').on('click', function(){
+            $('#modal').removeClass('hidden');
+            $('#modal-content').removeClass('hidden');
+        });
 
         $('#close-modal').on('click', function(){
             $('#modal').addClass('hidden');
@@ -147,6 +147,11 @@ define(function (require) {
             $('#representa').toggle();
             $('#menu').toggle();
         });
+
+        $('#back-reconoce').on('click', function(){
+            $('#reconoce').toggle();
+            $('#menu').toggle();
+        })
 
         $('#representa-button').on('click', function(){
             $('#menu').toggle();
@@ -186,34 +191,44 @@ define(function (require) {
             ramdomSerie_Representa();
         });
 
-
-
-        $('#practica-button').on('click', function(){
+        $('#reconoce-button').on('click', function(){
             $('#menu').toggle();
-            $('#practica').toggle();
+            $('#reconoce').toggle();
+            
+            Reconoce();
+            addLife_Reconoce();
+            addScore_Reconoce();
+            ramdomSerie_Reconoce();
+        });
 
-            var s = new Practica();
-                s.addScore
-                s.randomSerie();
-                $('#check').on('click', function() {
-                    if(s.check()) {
-                        console.log(s.win());
-                        if(s.win()) {
-                            win_msg();
-                        }
-                        else {
-                            s.clean();
-                            good_msg();
-                            s.randomSerie();
-                            s.scores++;
-                            s.addScore();
-                        }
-                    }
-
-                    else {
-                        fail_msg();
-                    }
-                });
+        $('#check-reconoce').on('click', function() {
+            if(check_Reconoce() == true) {
+                $('#msg-reconoce').html('¡Muy bien, continúa así!');
+                $('#msg-reconoce').removeClass('hidden');
+                setTimeout(function(){ $('#msg-reconoce').addClass('hidden'); }, 2000);
+                $('#reconoce-num').val('');
+                $('#reconoce-den').val('');
+                $('#reconoce-fra-num').val('');
+                $('#reconoce-fra-den').val('');
+                reconoceWinCount++;
+                addScore_Reconoce();
+                ramdomSerie_Reconoce();
+                if (reconoceWinCount == 3) { //cambiar para cantidad de aciertos
+                    window.alert('pasaste!');
+                }
+            }else {
+                $('#msg-reconoce').html('¡Te has equivocado en algun numero!');
+                $('#msg-reconoce').removeClass('hidden');
+                setTimeout(function(){ $('#msg-reconoce').addClass('hidden'); }, 2000);
+                $('#life-reconoce-'+reconoceLifeCount).fadeOut();
+                reconoceLifeCount--;
+                addLife_Reconoce();
+                if (reconoceLifeCount == 0) {
+                    window.alert('perdiste!');
+                    $('#reconoce').toggle();
+                    $('#menu').toggle();
+                }
+            }
         });
 
     });

@@ -43,7 +43,7 @@
                     <div id="representa-area">
                         <div id="representa-img"></div>
                         <input type="number" id="representa-op">
-                        <div id="representa-text">8</div>
+                        <div id="representa-text">  </div>
                         <div id="check-representa-container"><button id="check-representa">Comprobar</button></div>
                     </div>
 
@@ -59,67 +59,37 @@
 
             <div id="reconoce" class="hidden">
               <div class="reconoce">
+
+                    <p id="score-reconoce"></p>
+                    <button id="help-reconoce">Ayuda</button>
+                    <div id="life-container-reconoce"></div>
+                    <button id="back-reconoce">Volver al menu</button>
+                    
+                    <div id="reconoce-area">
+                        <div id="reconoce-img"></div>
+                        <label id="label-reconoce-numerador" class="label-reconoce">Numerador:</label>
+                        <input type="number" id="reconoce-num" class="input-reconoce">
+                        <label id="label-reconoce-denominador" class="label-reconoce">Denominador:</label>
+                        <input type="number" id="reconoce-den" class="input-reconoce">
+                        <label id="label-reconoce-fraccion" class="label-reconoce">Fraccion completa:</label>
+                        <input type="number" id="reconoce-fra-num" class="input-reconoce">
+                        <div id="reconoce-text"></div>
+                        <input type="number" id="reconoce-fra-den" class="input-reconoce">
+                        
+                        <div id="check-reconoce-container"><button id="check-reconoce">Comprobar</button></div>
+                    </div>
+
+                    <div id="msg-reconoce" class="hidden"></div>
+
+                    <div class="win-reconoce hidden">
+                        <h1 id="win-reconoce-text">Este es el texto que cambias con .html()</h1>
+                        <button id="serie-again">Jugar de nuevo</button>
+                    </div>
               </div>
             </div>
 
             <div id="practica" class="hidden">
                 <div class="practica">
-                    <div class="score-area">
-                        <p id="score-practica"></p>
-                    </div>
-                    <div class="text">
-                       
-                        <div id="serie-text"></div>
-                    </div>
-                    <div class="text2">
-                        <p><button id="check">Comprobar</button></p>
-                    </div>
-                    <div class="text3">
-                       ____
-                    </div>
-                    <div class="text4">
-                       ____
-                    </div>
-                    <div class="text5">
-                       _______
-                    </div>
-                    <div class="text-area">
-                        <button class="reload reload-button" title="Volver">Volver a menu</button>
-                    </div>
-                    <div class="msg">
-                        <h1 class="hidden good">Muy bien, continúa</h1>
-                        <h1 class="hidden bad">Has fallado, vuelve a intertarlo</h1>
-                    </div>
-                    <div class="hidden win">
-                        <h1>Felicidades, has ganado</h1>
-                        <button class="reload-button">Volver a menu</button>
-                        <button class="serie-again">Jugar de nuevo</button>
-                    </div>
-                    <div class="element" style="top: 230px; left: 390px;">
-                        <button class="button-serie" value="0"></button>
-                        <input class="hidden" type="text">
-                    </div>
-                    <div class="element" style="top: 280px; left: 390px;">
-                        <button class="button-serie" value="1"></button>
-                        <input class="hidden" type="text">
-                    </div>
-                    <div class="element" style="top: 230px; left: 510px;">
-                        <button class="button-serie" value="2"></button>
-                        <input class="hidden" type="text">
-                    </div>
-                    <div class="element" style="top: 280px; left: 510px;">
-                        <button class="button-serie" value="3"></button>
-                        <input class="hidden" type="text">
-                    </div>
-                    <div class="element" style="top: 220px; left: 640px;">
-                        <button class="button-serie" value="4"></button>
-                        <input class="hidden" type="text">
-                    </div>
-                    <div class="element" style="top: 290px; left: 640px;">
-                        <button class="button-serie" value="5"></button>
-                        <input class="hidden" type="text">
-                    </div>
-
                 </div>
             </div>
 
