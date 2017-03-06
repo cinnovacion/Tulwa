@@ -65,6 +65,7 @@ define(function (require) {
         reconoceSerie = reconoce[Math.floor(Math.random() * reconoce.length)];
         //$('#representa-img').css('background', 'url('+tmp.img+') no-repeat 0 0');
         $('#reconoce-img').css('background', 'url('+reconoceSerie.img+')');
+        
         console.log(reconoceSerie)
     };
 
@@ -126,38 +127,30 @@ define(function (require) {
 
     function ramdomSerie_Practica() {
         practicaSerie = practica[Math.floor(Math.random() * practica.length)];
-        
+        $('#num-op1').html(practicaSerie.serie[0]);
+        $('#den-op1').html(practicaSerie.serie[1]);
+        $('#num-op2').html(practicaSerie.serie[2]);
+        $('#den-op2').html(practicaSerie.serie[3]);
+        $('#text-op-practica').html(practicaSerie.text);
         
         console.log(practicaSerie)
     };
 
     function check_Practica() {
-        var hits = 0;
-        if (parseInt($('#practica-num').val()) == practicaSerie.serie[0]) {
+            var hits = 0;
+        if (parseInt($('#num-res').val()) == practicaSerie.num) {
             hits++;
         } else{
-            $('#practica-num').val('');
+            $('#num-res').val('');
         }
 
-        if (parseInt($('#practica-den').val()) == practicaSerie.serie[1]) {
+        if (parseInt($('#den-res').val()) == practicaSerie.den) {
             hits++;
         } else{
-            $('#practica-den').val('');
+            $('#den-res').val('');
         }
 
-        if (parseInt($('#practica-fra-num').val()) == practicaSerie.serie[0]) {
-            hits++;
-        } else{
-            $('#practica-fra-num').val('');
-        }
-
-        if (parseInt($('#practica-fra-den').val()) == practicaSerie.serie[1]) {
-            hits++;
-        } else{
-            $('#practica-fra-den').val('');
-        }
-
-        if (hits == 4) {
+        if (hits == 2) {
             return true;
         } else{
             return false;
@@ -319,10 +312,8 @@ define(function (require) {
                 $('#msg-practica').html('¡Muy bien, continúa así!');
                 $('#msg-practica').removeClass('hidden');
                 setTimeout(function(){ $('#msg-practica').addClass('hidden'); }, 2000);
-                $('#practica-num').val('');
-                $('#practica-den').val('');
-                $('#practica-fra-num').val('');
-                $('#practica-fra-den').val('');
+                $('#num-res').val('');
+                $('#den-res').val('');
                 practicaWinCount++;
                 addScore_Practica();
                 ramdomSerie_Practica();
