@@ -14,6 +14,10 @@ define(function (require) {
     var reconoceLifeCount = null;
     var reconoceWinCount = null;
 
+    var practicaSerie = null;
+    var practicaLifeCount = null;
+    var practicaWinCount = null;
+
 
     function Representa() {
         representaLifeCount = 4;
@@ -109,6 +113,69 @@ define(function (require) {
         $("#life-reconoce").html(reconoceLifeCount);
     };
 
+
+
+    function Practica() {
+        practicaLifeCount = 4;
+        practicaWinCount = 0;
+        $('#life-container-practica').empty();
+        for (var i = 1; i <= practicaLifeCount; i++) {
+            $('#life-container-practica').append('<button id="life-practica-'+i+'" class="life-practica-icon"></button>');
+        };
+    };
+
+    function ramdomSerie_Practica() {
+        practicaSerie = practica[Math.floor(Math.random() * practica.length)];
+        
+        
+        console.log(practicaSerie)
+    };
+
+    function check_Practica() {
+        var hits = 0;
+        if (parseInt($('#practica-num').val()) == practicaSerie.serie[0]) {
+            hits++;
+        } else{
+            $('#practica-num').val('');
+        }
+
+        if (parseInt($('#practica-den').val()) == practicaSerie.serie[1]) {
+            hits++;
+        } else{
+            $('#practica-den').val('');
+        }
+
+        if (parseInt($('#practica-fra-num').val()) == practicaSerie.serie[0]) {
+            hits++;
+        } else{
+            $('#practica-fra-num').val('');
+        }
+
+        if (parseInt($('#practica-fra-den').val()) == practicaSerie.serie[1]) {
+            hits++;
+        } else{
+            $('#practica-fra-den').val('');
+        }
+
+        if (hits == 4) {
+            return true;
+        } else{
+            return false;
+        }
+    };
+
+    function addScore_Practica() {
+        if (practicaWinCount < 10) {
+            $("#score-practica").html("0"+practicaWinCount);
+        }else{
+            $("#score-practica").html(practicaWinCount);
+        }
+    };
+
+    function addLife_Practica() {
+        $("#life-practica").html(practicaLifeCount);
+    };
+
     // Manipulate the DOM only when it is ready.
     require(['domReady!'], function (doc) {
 
@@ -151,7 +218,12 @@ define(function (require) {
         $('#back-reconoce').on('click', function(){
             $('#reconoce').toggle();
             $('#menu').toggle();
-        })
+        });
+
+        $('#back-practica').on('click', function(){
+            $('#practica').toggle();
+            $('#menu').toggle();
+        });
 
         $('#representa-button').on('click', function(){
             $('#menu').toggle();
@@ -226,6 +298,47 @@ define(function (require) {
                 if (reconoceLifeCount == 0) {
                     window.alert('perdiste!');
                     $('#reconoce').toggle();
+                    $('#menu').toggle();
+                }
+            }
+        });
+
+
+        $('#practica-button').on('click', function(){
+            $('#menu').toggle();
+            $('#practica').toggle();
+            
+            Practica();
+            addLife_Practica();
+            addScore_Practica();
+            ramdomSerie_Practica();
+        });
+
+        $('#check-practica').on('click', function() {
+            if(check_Practica() == true) {
+                $('#msg-practica').html('¡Muy bien, continúa así!');
+                $('#msg-practica').removeClass('hidden');
+                setTimeout(function(){ $('#msg-practica').addClass('hidden'); }, 2000);
+                $('#practica-num').val('');
+                $('#practica-den').val('');
+                $('#practica-fra-num').val('');
+                $('#practica-fra-den').val('');
+                practicaWinCount++;
+                addScore_Practica();
+                ramdomSerie_Practica();
+                if (practicaWinCount == 3) { //cambiar para cantidad de aciertos
+                    window.alert('pasaste!');
+                }
+            }else {
+                $('#msg-practica').html('¡Te has equivocado en algun numero!');
+                $('#msg-practica').removeClass('hidden');
+                setTimeout(function(){ $('#msg-practica').addClass('hidden'); }, 2000);
+                $('#life-practica-'+practicaLifeCount).fadeOut();
+                practicaLifeCount--;
+                addLife_Practica();
+                if (practicaLifeCount == 0) {
+                    window.alert('perdiste!');
+                    $('#practica').toggle();
                     $('#menu').toggle();
                 }
             }
