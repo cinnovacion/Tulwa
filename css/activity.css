@@ -170,6 +170,10 @@
   background-image: url(../img/menu-area-practica.png);
   transition: 2s;
 }
+
+
+/* -----------representa --------  */
+
 #score {
   position: absolute;
   top: 50px;
@@ -294,6 +298,22 @@ input::-webkit-inner-spin-button {
 }
 .life-representa-icon:hover {
   background-color: transparent;
+}
+
+.win-representa {
+  background-image: url(../img/win-representa.png);
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  color: #fff;
+  border-radius: 20px;
+  top: 200px;
+  left: 285px;
+
+  border-radius: 40px 40px 40px 40px;
+  -moz-border-radius: 40px 40px 40px 40px;
+  -webkit-border-radius: 40px 40px 40px 40px;
+  border: 0px solid #000000;
 }
 
 /*------------------Reconoce-------------------------*/

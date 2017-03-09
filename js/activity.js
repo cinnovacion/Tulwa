@@ -206,6 +206,7 @@ define(function (require) {
         $('#back-representa').on('click', function(){
             $('#representa').toggle();
             $('#menu').toggle();
+            
         });
 
         $('#back-reconoce').on('click', function(){
@@ -221,6 +222,7 @@ define(function (require) {
         $('#representa-button').on('click', function(){
             $('#menu').toggle();
             $('#representa').toggle();
+            $('.win-representa').addClass('hidden');
             
             Representa();
             addLife_Representa();
@@ -237,7 +239,7 @@ define(function (require) {
                 representaWinCount++;
                 addScore_Representa();
                 if (representaWinCount == 3) { //cambiar para cantidad de aciertos
-                    window.alert('pasaste!');
+                     $('.win-representa').removeClass('hidden');
                 }
             }else {
                 $('#msg-representa').html('¡Te has equivocado!');
