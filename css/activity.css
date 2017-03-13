@@ -215,6 +215,7 @@
 }
 #representa-img {
   position: absolute;
+  align-items: center;
   width: 350px;
   height: 350px;
   background-color: white;
@@ -301,6 +302,22 @@ input::-webkit-inner-spin-button {
 }
 
 .win-representa {
+  background-image: url(../img/win-representa.png);
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  color: #fff;
+  border-radius: 20px;
+  top: 200px;
+  left: 285px;
+
+  border-radius: 40px 40px 40px 40px;
+  -moz-border-radius: 40px 40px 40px 40px;
+  -webkit-border-radius: 40px 40px 40px 40px;
+  border: 0px solid #000000;
+}
+
+.lose-representa {
   background-image: url(../img/win-representa.png);
   position: absolute;
   width: 800px;

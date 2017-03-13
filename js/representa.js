@@ -17,43 +17,43 @@ define(function (require) {
             'serie': 8,
             'img': 'img/Nivel1/ejer3.png',
             'op1': 3,
-        },/*
+        },
 
         {
-            'serie': [null, 6],
+            'serie': 6,
             'img': 'img/Nivel1/ejer4.png',
             'op1': 4,
         },
         {
-            'serie': [null, 4],
+            'serie': 4,
             'img': 'img/Nivel1/ejer5.png',
             'op1': 3,
         },
         {
-            'serie': [null, 7],
+            'serie': 7,
             'img': 'img/Nivel1/ejer6.png',
             'op1': 5,
         },
         {
-            'serie': [null, 8],
+            'serie': 8,
             'img': 'img/Nivel1/ejer7.png',
             'op1': 6,
         },
         {
-            'serie': [null, 5],
+            'serie': 10,
             'img': 'img/Nivel1/ejer8.png',
-            'op1': 3,
+            'op1': 6,
         },
         {
-            'serie': [null, 9],
+            'serie': 9,
             'img': 'img/Nivel1/ejer9.png',
             'op1': 5,
         },
         {
-            'serie': [null, 10],
+            'serie': 10,
             'img': 'img/Nivel1/ejer10.png',
             'op1': 7,
-        },
+        },/*
         {
             'serie': [null, 9],
             'img': 'img/Nivel1/ejer11.png',

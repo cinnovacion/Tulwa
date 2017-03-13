@@ -31,7 +31,7 @@ define(function (require) {
     function ramdomSerie_Representa() {
         representaSerie = representa[Math.floor(Math.random() * representa.length)];
         //$('#representa-img').css('background', 'url('+tmp.img+') no-repeat 0 0');
-        $('#representa-img').css('background', 'url('+representaSerie.img+')');
+        $('#representa-img').css('background', 'url('+representaSerie.img+')no-repeat 0 0');
         $('#representa-text').html(representaSerie.serie);
     };
 
@@ -64,7 +64,7 @@ define(function (require) {
     function ramdomSerie_Reconoce() {
         reconoceSerie = reconoce[Math.floor(Math.random() * reconoce.length)];
         //$('#representa-img').css('background', 'url('+tmp.img+') no-repeat 0 0');
-        $('#reconoce-img').css('background', 'url('+reconoceSerie.img+')');
+        $('#reconoce-img').css('background', 'url('+reconoceSerie.img+') no-repeat 0 0');
         
         console.log(reconoceSerie)
     };
@@ -238,7 +238,7 @@ define(function (require) {
                 $('#representa-op').val('');
                 representaWinCount++;
                 addScore_Representa();
-                if (representaWinCount == 3) { //cambiar para cantidad de aciertos
+                if (representaWinCount == 4) { //cambiar para cantidad de aciertos
                      $('.win-representa').removeClass('hidden');
                 }
             }else {
@@ -250,9 +250,7 @@ define(function (require) {
                 representaLifeCount--;
                 addLife_Representa();
                 if (representaLifeCount == 0) {
-                    window.alert('perdiste!');
-                    $('#representa').toggle();
-                    $('#menu').toggle();
+                    $('.lose-representa').removeClass('hidden');
                 }
             }
             ramdomSerie_Representa();
