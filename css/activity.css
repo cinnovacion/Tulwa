@@ -318,7 +318,7 @@ input::-webkit-inner-spin-button {
 }
 
 .lose-representa {
-  background-image: url(../img/win-representa.png);
+  background-image: url(../img/lose.png);
   position: absolute;
   width: 800px;
   height: 500px;

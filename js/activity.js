@@ -185,15 +185,24 @@ define(function (require) {
         });
 
         $('#history').on('click', function(){
+            $('#modal-content').addClass('modal-content-menu');
+            $('#modal-content').removeClass('modal-content-game');
+            $('#modal-content').css('background-image', 'url(img/historia.png)');
             $('#modal').removeClass('hidden');
             $('#modal-content').removeClass('hidden');
         });
 
         $('#help-representa').on('click', function(){
+            $('#modal-content').addClass('modal-content-menu');
+            $('#modal-content').removeClass('modal-content-game');
+            $('#modal-content').css('background-image', 'url(img/ayuda_representa-01.png)');
             $('#modal').removeClass('hidden');
             $('#modal-content').removeClass('hidden');
         });
         $('#help-reconoce').on('click', function(){
+           $('#modal-content').addClass('modal-content-menu');
+            $('#modal-content').removeClass('modal-content-game');
+            $('#modal-content').css('background-image', 'url(img/ayuda_reconoce-01-02.png)');
             $('#modal').removeClass('hidden');
             $('#modal-content').removeClass('hidden');
         });
